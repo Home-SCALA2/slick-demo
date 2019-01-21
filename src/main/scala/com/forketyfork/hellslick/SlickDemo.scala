@@ -70,9 +70,7 @@ object SlickDemo extends App {
   // выполняем футуру и выводим её результат — количество вставленных записей
   val databaseFuture = for {
     i <- actionFuture
-    _ <- Future {
-      println(s"Вставлено записей: $i")
-    }
+    _ <- Future { println(s"Вставлено записей: $i") }
   } yield ()
 
   Await.result(databaseFuture, 1 second)
